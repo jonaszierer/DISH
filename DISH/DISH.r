@@ -77,7 +77,8 @@ if(hg_ver == "hg18"){
 ## Check & Read the user defined input file
 print("reading your input file...")
 if(input_type=="T"){
-	study_map = complete.cases(read.table(study_map_file, header=T, sep="\t", stringsAsFactors=F))
+	study_map = read.table(study_map_file, header=T, sep="\t", stringsAsFactors=F)
+	study_map = study_map[ complete.cases(study_map), ]
 }else if(input_type=="P"){
 	print("Merge your .frq file with your statistics information")
 	Ffile = read.table(pasete0(study_map_file,".frq",collapse=NULL), header=T,stringsAsFactors=F)
